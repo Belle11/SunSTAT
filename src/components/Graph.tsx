@@ -68,21 +68,42 @@ const graph_data = {
 }
 
 const options ={
-    plugins:{
-        legend:true
+      plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+        labels: {
+          color: 'black',
+          font: {
+            size: 9,
+          },
+        },
+      },
     },
-    scale:{
-        y:{
-            // min: 3,
-            // max: 6
-        }
-    }
+    scales: {
+      x: {
+        display: true, // Display the x-axis
+        title: {
+          display: true,
+          text: 'Days', // Customize the label for the x-axis
+        },
+      },
+      y: {
+        display: true, // Display the y-axis
+        beginAtZero: true, // Start the y-axis from 0
+        max: 100,
+        title: {
+          display: true,
+          text: 'Weather Code', // Customize the label for the y-axis
+        },
+      },
+    },
 }
     return(
         <>
 
             <div className="graphbx bg-light-100  shadow-lg rounded-large h-60 mx-5 p-5 ">
-                <h1 className='font-title font-normal text-[15px] text-dark-mode inline-block'></h1>
+                <h1 className='font-title font-normal text-[15px] text-dark-mode inline-block'>Weekly Weather Forecast</h1>
 
                 <Line
                     data= {graph_data}
