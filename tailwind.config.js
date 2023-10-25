@@ -14,8 +14,6 @@ export default {
           200: '#374151'
         }
         
- 
-  
   
       },
       screens: {

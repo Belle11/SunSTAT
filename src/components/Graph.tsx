@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {Line} from "react-chartjs-2";
 
 import {
@@ -5,113 +6,138 @@ import {
     LineElement,
     CategoryScale,//X-axis
     LinearScale, //Y-axis
-    PointElement
+    PointElement,
+    ArcElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler,
 } from 'chart.js';
 
 ChartJs.register(
     LineElement,
     CategoryScale,
     LinearScale,
-    PointElement
+    PointElement,
+    ArcElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler
 )
 
 function Graph() {
+interface ChartData {
+        labels: string[];
+        datasets: {
+          label: string;
+          data: number[];
+          fill: boolean;
+          borderColor: string;
+          backgroundColor: string;
+        }[];
+      }
+const [chartData, setChartData] = useState<ChartData>({
+    labels: [],
+  datasets: [
+    {
+      label: "Weather Code",
+      data: [],
+      fill: true,
+      borderColor: "",
+      backgroundColor: "",
+    },
+  ],
+})
 
-    //FUNCTION TO GET WEATHER DATA FROM API
 
-
-
-async function getAct() {
-    try {
+useEffect(() => {
+    const fetchData =async () => {
+        
         let url = 'https://api.open-meteo.com/v1/forecast?latitude=14.6042&longitude=120.9822&daily=weathercode,temperature_2m_max,temperature_2m_min,uv_index_clear_sky_max,precipitation_sum&current_weather=true&timezone=auto';
-
         let response = await fetch(url);
-        let data = await response.json(); 
-        
-        //Must Include in className (if needed) ---> current-weather
-       const CurrentWeather = document.getElementsByClassName("current-weather")
-        CurrentWeather[0].innerHTML = data.daily.weathercode;
-        
-
-        //Dates
-        // DailyTime = document.getElementsByClassName("daily-time")
-        // DailyTime[0].innerHTML = data.daily.time;
-
-        
-       // const max_temp = document.getElementsByClassName("max_temp")
-        
-        
-
-    } catch (error) {
-        console.error(`ERROR:${error}`)
+        const data = await response.json();
+        console.log("test", data.daily.weathercode)
+        setChartData({
+          labels:data.daily.time,
+          datasets:[{
+            label:"Weather",
+            data: data.daily.weathercode,
+            fill:true,
+            borderColor: "rgb(88,0,81)",
+            backgroundColor: "rgba(88,0,81,0.5)",
+          }]
+        });
     }
+    fetchData()
+}, [])
 
-
-}//END OF FUNCTION HERE
-
-getAct();//CALLING THE FUNCTION
-
-
-const graph_data = {
-    
-    labels: ["Mon", "Tues", "Wed"],
-    datasets: [{
-        labels: 'Weather Code',
-        data: [6,3, 9],
-        backgroundcolor: 'aqua',
-        borderColor: 'black',
-        pointBorderColor: 'aqua',
-        fill: true,
-        tension: 0.4,
-
-    }]
-}
-
-const options ={
-      plugins: {
-      legend: {
-        display: true,
-        position: 'top',
-        labels: {
-          color: 'black',
-          font: {
-            size: 9,
-          },
-        },
-      },
-    },
-    scales: {
-      x: {
-        display: true, // Display the x-axis
-        title: {
-          display: true,
-          text: 'Days', // Customize the label for the x-axis
-        },
-      },
-      y: {
-        display: true, // Display the y-axis
-        beginAtZero: true, // Start the y-axis from 0
-        max: 100,
-        title: {
-          display: true,
-          text: 'Weather Code', // Customize the label for the y-axis
-        },
-      },
-    },
-}
     return(
         <>
 
-            <div className="graphbx bg-light-100  shadow-lg rounded-large h-60 mx-5 p-5 ">
+            <div className="graphbx bg-light-100  shadow-lg rounded-large h-auto mx-5 p-5 ">
                 <h1 className='font-title font-normal text-[15px] text-dark-mode inline-block'>Weekly Weather Forecast</h1>
+                <div className="app">
+                    <div className="chart">
+                    <Line 
+                data ={chartData}
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                          display: true,
+                          position: 'top',
+                          labels: {
+                            color: 'black',
+                            font: {
+                              size: 9,
+                            },
+                          },
+                        },
+                        
+                      },
+                      scales: {
+                        x: {
+                          display: true, // Display the x-axis
+                          title: {
+                            display: true,
+                            text: 'Days', // Customize the label for the x-axis
+                        
+                          },
+                          ticks:{
+                            font: {
+                                size: 9, // Adjust the font size for the x-axis labels
+                                weight: 'bold', // You can also set the font weight
+                              },
+                          }
+                        },
+                        y: {
+                          display: true, // Display the y-axis
+                          beginAtZero: true, // Start the y-axis from 0
+                          max: 100,
+                          min: 0,
+                          title: {
+                            display: true,
+                            text: 'Weather Code',
+                          },
+                        },
+                      },
+                      
+                }
 
-                <Line
-                    data= {graph_data}
-                    options={options}
-                > </Line>
+                }
+            />
+
+                    </div>
+
+                </div>
+           
             </div>
         </>
     );
 }
 
 export default Graph;
+
+
