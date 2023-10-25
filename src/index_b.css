@@ -7,6 +7,7 @@ body{
 }
 
 .dashbx, .meterbx, .graphbx, .calendarbx{
+    margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
 }
@@ -18,6 +19,82 @@ body{
     justify-content: center;
 }
 
+/* Menu */
+.menubx{
+    padding: 0px;
+    margin: 0px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #192655;
+    height: 60px; 
+    padding: 0 20px;
+}
+
+.logo {
+    margin-top: -5px;
+    position:relative;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; 
+    height: auto;
+    margin-right: 5px;
+}
+
+.logo h1 {
+    margin-top: 10px;
+    color: #E1AA74;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.user a {
+    text-decoration: none;
+}
+
+.user img {
+    width: 20px; 
+    cursor: pointer;
+}
+
+/* Style for the sidebar */
+.sidebar {
+    width: 200px; /* Adjust the width as needed */
+    position: fixed; /* Use the desired position */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #610C9F;
+    color: white;
+    transition: right 0.3s; /* Add a transition for smooth sliding */
+}
+
+
+.sidebar ul {
+    padding: 20px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar.visible {
+    left: 0;
+  }
+
+/* Show the sidebar when the user icon is clicked */
+#user-icon:focus + .sidebar {
+    left: 0;
+}
+
+/* End of Menu*/
 
 
 .chart{
