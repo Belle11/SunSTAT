@@ -57,7 +57,6 @@ useEffect(() => {
         let url = 'https://api.open-meteo.com/v1/forecast?latitude=14.6042&longitude=120.9822&daily=weathercode,temperature_2m_max,temperature_2m_min,uv_index_clear_sky_max,precipitation_sum&current_weather=true&timezone=auto';
         let response = await fetch(url);
         const data = await response.json();
-        console.log("test", data.daily.weathercode)
         setChartData({
           labels:data.daily.time,
           datasets:[{
@@ -76,7 +75,7 @@ useEffect(() => {
         <>
 
             <div className="graphbx bg-light-100  shadow-lg rounded-large h-auto mx-5 p-5 ">
-                <h1 className='font-title font-normal text-[15px] text-dark-mode inline-block'>Weekly Weather Forecast</h1>
+                <h1 className='font-title font-semibold text-[15px] text-dark-mode inline-block'>Weekly Weather Forecast</h1>
                 <div className="app">
                     <div className="chart">
                     <Line 

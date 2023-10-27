@@ -22,8 +22,14 @@ function MeterPanel(){
         
 
             <div className="meterbx bg-light-100/[.06] shadow-lg rounded-large h-20 mx-10 p-5">
-            <h4 className="font-title font-normal text-light-100">Power: 12 W / 15 W</h4>
-            <h4 className="font-title font-normal text-light-100">Max Voltage: 16v / 9v / 6v</h4>
+            <h4 className="font-title font-bold text-[13px] text-light-100 inline-block">Power: &nbsp;</h4>
+            <h1 className="font-title text-[13px] text-light-100 inline-block"> 12 W / 15 W</h1> <br></br>  
+
+            <h4 className="font-title font-bold text-[13px] text-light-100 inline-block">Max Voltage: &nbsp;</h4>
+            <h1 className="font-title text-[13px] text-light-100 inline-block"> 16v/ 9v/ 6v</h1> <br></br>  
+
+            <h1 className="font-title font-bold text-[13px] text-light-100 inline-block">Generated: &nbsp;</h1>
+            <h1 className="font-title text-[13px] text-light-100 inline-block">10%</h1> <br></br>  
             </div>
 
 

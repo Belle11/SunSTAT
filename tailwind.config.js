@@ -8,7 +8,8 @@ export default {
     extend:{
       colors: {
         'dark-mode': '#0F172A',
-  
+        'navcolor': '#1b294b',
+        
         'light': {
           100: '#FBF5F3 ',
           200: '#374151'
