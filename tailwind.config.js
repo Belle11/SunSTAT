@@ -9,13 +9,19 @@ export default {
       colors: {
         'dark-mode': '#0F172A',
         'navcolor': '#1b294b',
-        
+        'lightbox':'#dce5ef',
+
         'light': {
           100: '#FBF5F3 ',
           200: '#374151'
         }
         
   
+      },
+
+      dropShadow: {
+        'xl': '3px 10px 5px rgba(255, 255, 255, 0.08)',
+
       },
       screens: {
         'mobile': '375px',

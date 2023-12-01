@@ -1,7 +1,7 @@
-function signupPage() {
+export function Signup(){
     return(
-        <div>
-
-        </div>
+    <>
+        <div className="text-blue-700">Test</div>
+    </>
     )
 }
