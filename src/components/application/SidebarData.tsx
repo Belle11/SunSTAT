@@ -32,13 +32,6 @@ export const SidebarData = [
             icon: <BsIcons.BsStack/>,
             cName: 'nav-text'
         },
-    
-        {
-            title: 'Whitepaper',
-            path:'/whitepaper',
-            icon: <IoIcons.IoIosPaper/>,
-            cName: 'nav-text'
-        },
     ];
 
     

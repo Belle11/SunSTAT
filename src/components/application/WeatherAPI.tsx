@@ -87,10 +87,14 @@ export async function getAct() {
 
         if(avg >=0 && avg <= 55){
             document.getElementsByClassName('recomm-stats')[0].innerHTML= 'Normal Consumption';
+            document.getElementsByClassName('recomm-save')[0].innerHTML= 'Use energy wisely';
+
         }else if(avg >= 60 || avg <= 65){
+            document.getElementsByClassName('recomm-save')[0].innerHTML= 'At least 60%';
             document.getElementsByClassName('recomm-stats')[0].innerHTML= 'Moderate Consumption';
         }else if(avg > 65){
             document.getElementsByClassName('recomm-stats')[0].innerHTML= 'YOU HAVE TO SAVE FOR EMERGENCY!!';
+            document.getElementsByClassName('recomm-save')[0].innerHTML= 'Bad weather, save all energy'; 
         }
 
 

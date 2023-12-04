@@ -17,7 +17,7 @@ function RecommendPanel() {
                  <h1 className="font-title text-[13px] text-dark-mode inline-block recomm-stats"><i>Recommended consumption</i> </h1> <br></br>
 
                  <h1 className="font-title font-bold text-[13px] text-dark-mode inline-block">Save: &nbsp;</h1>
-                 <h1 className="font-title text-[13px] text-dark-mode inline-block recomm-stats"><i>Save up to based on recommendations</i> </h1> <br></br>
+                 <h1 className="font-title text-[13px] text-dark-mode inline-block recomm-save"><i>Save up to based on recommendations</i> </h1> <br></br>
 
 
             </div>
