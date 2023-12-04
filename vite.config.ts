@@ -1,8 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import {VitePWA} from 'vite-plugin-pwa';
-
+import { UserConfig } from 'vite';
 // https://vitejs.dev/config/
+export const config: UserConfig = {
+  server: {
+    host: 'localhost',
+    port: 5173,
+    // Add headers to the server configuration
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'unsafe-none',
+    },
+  },
+};
+
 export default defineConfig({
   plugins: [
     VitePWA(

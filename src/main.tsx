@@ -5,7 +5,6 @@ import './index.css'
 import './index_b.css'
 import { registerSW } from "virtual:pwa-register";
 
-
 const updateSW = registerSW({
   onNeedRefresh() {
     if (confirm("New content available. Reload?")) {
