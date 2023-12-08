@@ -5,7 +5,7 @@ import MeterPanel from './MeterPanel'
 import Graph from './Graph'
 import Forecast from './Forecast'
 import RecommendPanel from './Recommendation'
-
+import CostForecast from './CostForecast'
 
 
 function Home() {
@@ -16,9 +16,11 @@ function Home() {
           <Dashboard/>
           <MeterPanel />
           <Graph />
+          <CostForecast />
           <Location />
           <Forecast />
           <RecommendPanel />
+
     </div>
     </>
   )

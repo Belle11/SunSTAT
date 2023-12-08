@@ -4,6 +4,7 @@ import {AiOutlineClose} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
+import app_logo from 'public/icons/app_logo.png'
 
 function TopBar() {
 

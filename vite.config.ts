@@ -21,7 +21,7 @@ export default defineConfig({
         registerType: 'prompt',
 
             // add this to cache all the imports
-            workbox: {
+          workbox: {
               globPatterns: ["**/*"],
           },
           // add this to cache all the
